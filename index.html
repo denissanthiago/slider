@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple product Slider</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Porducts.</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <section class="banner">
+        <div class="imgBx">
+            <img src="./assets/img1.jpg" class="active" alt="image">
+            <img src="./assets/img2.jpg" alt="image">
+            <img src="./assets/img3.jpg" alt="image">
+            <img src="./assets/img4.jpg" alt="image">
+        </div>
+        <ul class="controls">
+            <li onclick="prevSlide();"></li>
+            <li onclick="nextSlide();"></li>
+        </ul>
+    </section>
+    <script type="text/javascript"> 
+        const imgBx = document.querySelector('.imgBx');
+        const slides = imgBx.getElementsByTagName('img');
+        var i = 0;
+
+        function nextSlide() {
+            slides[i].classList.remove('active');
+            i = ( i + 1 ) % slides.length;
+            console.log("i here", i);
+            slides[i].classList.add('active')
+        }
+
+        function prevSlide() {
+            slides[i].classList.remove('active');
+            i = ( i - 1 + slides.length ) % slides.length;
+            console.log("i here", i);
+            slides[i].classList.add('active')
+        }
+
+    </script>
+</body>
+</html>
